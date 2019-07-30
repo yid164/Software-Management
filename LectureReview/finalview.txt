@@ -1,0 +1,164 @@
+i started with paper notes, and switched to htis laster... start at the key best practices slide on yt video
+# KEY BEST PRACTICES  
+* Conscious, proactive risk scanning & management
+* Accountable Positions
+* Peer Reviews
+* Risk-driven Incremental delivery
+* Binary mini-milestones
+* Daily build/continuous integration & smoke test
+## Daily buid/continuous integration & Smoke test.
+Name 4 reasons why this is a good thing.
+* 
+* 
+* Live results. 
+* Easier to debug if small changes since last check in. As opposed to, say, 4 months of development between merging to master and running together...
+    - There's less things that have changed! So if a bug comes up, less things then and now.
+## Designing for testability.
+Give me 4 ways you can design for testability of code. 4 concrete things.
+1. Separation of concerns. 
+Why does sep of conc help 
+    each has designed purpose. you could usbst. it out. mock out a ctrl. mock out a viewer. but it also 
+    TENDS TO HAVE A SIMPLER INTERFACE ASSOC with it so you can test it in isolation much esaier, can test it's pariculras. not a bunch of whole things glomped together. can test what it does do, more specifialized/specific and test more readily.
+2. Specifications.
+        3-ish "Modularity?" """I'd accept that in addition to ..."""
+3. Traceability.
+4. *TEST HOOKS*, ladies and gentleman. 
+Question: *What'a  test hook?*
+<<44:00 46:00 ISH>> - HE PROVIDES AN EXAMPLE, "(...) without banging your disk with a hammer."
+5. Script language / interface.
+6. Assertions
+    - Check pre/postconditions.
+    - Check programmers assumptions; see if the assumptions programmers are making are sane.
+    -"If you have assertions, it allows you to trap "
+        "sometimes failures that result from an underlying fault, only happen later. they occur in an out of memory thing 5 minutes later. Or they appear when you have a weird result 3 screens later. If you have lots of assertions it makes it more likely to catch it sooner, closer to the fault."
+    - tl;dr Lots of assertions -> More likely to catch things sooner, and closer to the fault.
+## RIGOROUS TEST CASE FORMULATION <<48:30 ish>>
+Listne here. Rigorous Test Csae formulation is very important.
+## Defct Estimation
+Three kinds?
+    Defect Seeding
+        Get an idea of fraction.
+    Historic Data
+        Example, say large company. vendastsa. Normally found X defects per Y000 Lines of code. Review two different time periods.
+    Defect Pooling 
+        Run two independent groups at the same time looking for bugs. ZERO communication between the two during it.
+        Then look at bugs found and how mnay *in common*.
+        *What if they found 40 bugs each, and only 1 in common?*
+        TL;DR little overlap -> Probably lots more bugs. More overlap -> Probably less bugs.
+        fishing analogy: tag first set of fish. Come back, and tag another 500 fish. See how many overlap. If none, there are TONS of fish in the pond.
+## Rigorous Risk-Driven Testing (ESPECIALLY TEST CREATION BEFORE CODING)
+    Test things where system is DELIBERATELY given BAD INPUT.
+        If I had a form and user could enter invalid information.
+            Say text box. Should I have an assertion that it's valid. i.e. they put something that was non-empty.
+                No. You gotta give them an error message and let them retry. Not just say I'm outta here.
+                        What are assertions used for? Check progrmamer assumptions on the logical consistency of their understanding; and logical consistnecy of way this code is called by other code; preconditions postconditions, 'my understanding' as rwote code is correct. But they CAN'T PUT IN ASSERTIONS that say, "User has to suck it up and enter correct e-mail address."
+                        So Sanity about assumptions. CAN'T USE THEM FOR THINGS THAT ARE JUST INCONVENIENCES.
+                        What other inconveniences do we have to deal with?
+                        Network Timeout.
+                            Hesitant: 
+                                - [Students] Different browsers? (Could simply state, `Only these browsers are valid` up front.) - Different Operating systems. "Hesitant but confirming Yeah, it's something to think about."
+                        Memory is full.
+                        User doesn't have permission to access _.
+## TDD <<58:30>>
+     Writing tests ahead of time. Make sure those tests don't just get thrown under the bus once written. (...)
+## Time Estimation / Boxing <<58:xx>>
+    What are issues with **single point of time estimates**
+    What's the issue with single point of time esimtates? 
+        "Lets say you estimate 4 months."
+        Re: "There's no slack." We tend to be very optimistic. We wnat to look good, estimate ourselves very highly, ignore fact people might get sick in meantime, go on vacation, things may not go right, technology may have flakiness, ...
+    What's another issue?
+        Doesn't measure *uncertainty.*
+    Much more effective to give range estimates. But what's a vulnerability with this?
+        Ranges tend to be more narrow.
+        Tend to underestimate how uncertain you are about this.
+        May remember curves. 
+## Process Improveent & Learning from mistakes <<59:00? -> 1:04:30>>
+"THIS IS CENTRAL TO THE COURSE."
+    This is a life lesson. 
+    When things go wrong, it's not out of the blue. May have been resaons something wasn't noticed until now. May be something that could have been handled better earlier on, or handled in a different way. 
+    Learning from mistakes - learning from improvements - being honest about critiques, and investing into improve our game to do better next time is a *very healthy thing* and it's how projects improve. Todays problem is tomorrows mistake.
+    Even if you find a bug. And you don't fix it. It could be a net positive if you *learn from the bug*
+## Change Control Mechanisms
+    Who should manage changes?
+    Project Manager.
+    Why is it so important to be handled by the project manager? And not the developer? Why are better to handle change requests? Proj. Manager knows scope of entire project, knows things like how much client is paying, and is the one dealing with the budget, etc., Dev isn't in a position to know all about that (i.e. the contract details, ...,) and the PM is more in contact with the client.
+    The person who may be asking on the client side may be someone who is not actually the boss and then ...
+## Throw-away prototypes
+    "Typically use the term Spike prototype"
+    It's a throwaway thing. With a spike prototype we're using the prototype to test the understanding things like how would X and Y work with eachother. How would this work architecturally. Etc. It's not the code written, (it gets thrown away, no value!)but the things learned from it are where the vlaue comes from.
+# Risk Management.  
+*Missed, go back to video and write more.*
+## Means of handling
+If you do not aggressively attack risks, as Tom Demarcko says, risks will aggressively attack you. <<1:09:00-> ish>>
+Risk mgmt helps us head off problems that are just giant headaches of they come about.
+So it's something that should be done throughout the projects. "Todays problem is tomorrow's risks" and if we don't deal with them, "Yesterdays risks are todays problems".
+# Specifications  
+## High-level Specification of "what" can be counted on.
+## Modularity Benefits
+### Preconditions, potconditions, invariations.
+## YOU HAVE A HIGH CHANCE OF SEEING THIS ON THE EXAM:
+     These sort of specifications, have a very high chance of appearing on the exam. For methods, they may things sasociated with the methods. I.e. certain things it guarantees, i.e. "As it runs, keeps X in list unchanged".
+### Classes as a whole
+    Invariants, history properties, ...
+<<1:12 - onwards somewhere>>
+Question: *Why does it help to have specifications for a method. Or why does it help to have specifications for the class. Why not just the code?"*
+## Modularity Benefits
+For the person who writes it, it's a clear understanding what can change, what cant, what things are being held accountable to, ..., and what things they can evolve.
+### Users of abstraction
+    Specifies guarantees on which can count
+### Creators of abstraction
+    Clear understanding of what cna be freely modified.  
+People who are going to use it can start it before it's even made. Having specifications ahead of time, lets them use it even if it's not fully implemented yet. Clear about guarantees, tests that could work, assertions, ...,
+*TL;DR SPECIFICATIONS*
+"Specifications, ladies and gentlement, in short. Are a good Thing." He goes and draws a smiley face on the whiteboard
+# Specifications: Additional Benefits. <<1:17:30 ish? He went over this whole slide bit pretty quickly>>  
+# Fakes, Mocks, and Stubs.  
+## Must test code A not against full ipmlementation of other code B but against a standin.
+"It allows us to have focused, isolated testing of one component without testing the entire system it depends on.
+So we mock out something that needs to be tested. We're focused on A right now, which relies on B and C. "
+Rather than going futzing with the code in B and C to test A... Why not go and play with B and C code right now?  
+- B may not be written! Or, implementation wise, B is non-deterministic, sow, difficult to get to the states we want, complex...  
+## For these ases, we create a subsitute version of the other object.
+## Fakes
+## Mocks
+## Stubs
+Question: (Looking back to 'testability') *List 5 things that increase testbability of your software.*
+    An answer... The ability to support mocking.
+# Testing <<1:22? Missing notes>>  
+**This section has been very disorg
+He kept the slide at "Test case design" in bold during this and it was hard to tell what subsection he was talking about, with the exception of View of testing more than "Finding bugs"...
+## Testing/schedule interaction
+## Testing metrics (Including FFR)
+## Test case design
+## Triage
+## Test team linkto development team
+## Bugs caught by testin vs. User
+## Automated testing & code coverage  
+## Structure & Function of testing pipeline
+Go back and fill in..  
+## View of testing as more than "finding bugs"
+Why is testing more than just finding bugs?
+- Maybe programmer made something in such a way that did not match up with the requirements.  
+- It's super slow.
+    Non functional requirements.. It's slow. It's Ugly. It's HIDEOUS! ... It looks uneblieveable. It's confusing as all get out. It's laid out in a really difficult ot understanding way, you know - it causes a headache to look at. These are problems - Confusing, garrish, almost undreadable and you know poor light on a screen that has full brightness or something.
+    "Testers are the first power users of your system."  (para: <<1:26 ish>> "They're pushing your system to find issues with it."
+Why might you not fix bugs you discover later on?
+What's the difference between priority and severity?
+    
+        "Bingo!"
+        Probability, impact if it occurs.
+        Severity: just Impact if it occurs.
+        An example. Which would you rather have: A system that crashes, hangs, or destroy data.
+        SOMETHING THAT DESTROYS  DATA.
+        It's like a hand stuck out of a computer and crushed it. Like a tin can.
+"But why might it be a high severity, but a low priority? Maybe it's an issue that occurs on IE 2, on Windows 95... "
+Priority in the end most important in guiding us, if we're going to fix it or not. Severity is how much it affects things.
+---
+<<1:32-1:34?>>
+### This area is less organized... e.g. I thought he was in Directed Triage of the testing, but then he had a question and it had to do with Sanitization, ..., and then after that he talked about Triage again.  
+Directed triage.
+Not reproducible. 
+based on a doubt. Not able to reproduce it. Not something you can find real evidence of, and
+What is the role of sanitization, and specifically [in response to Amys commenbts] what things are ruled out, tossed away, by sanitization.
+The sanitization stage, .., goes from .. the stage you have unsanitized defects, to ... active bugs. and what does it means to promote something to active bug.
+The project manager wants to set up expectations ahead of time - so the stakeholder knows "okay, it's...
