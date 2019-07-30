@@ -1,0 +1,18 @@
+# CMPT-371 TEAM 1 Release
+
+Link to application (Web page):
+http://cmpt371-mac.usask.ca/
+*	No login required.
+
+
+
+Browse in your internet browser of choice - Chrome / Mozilla have been extensively tested. Internet Explorer is NOT supported.
+
+
+
+
+Access to the Pre-Opt grid sheet:
+goo.gl/s3BVks  (case sensitive)
+
+*	The grid sheet can be used to confirm correctness of tests
+	needed based on the items checked off in the form.
